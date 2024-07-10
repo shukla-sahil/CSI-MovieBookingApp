@@ -5,6 +5,7 @@ import { auth } from '../Firebase/FirebaseConfig';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 
 const Navbar = () => {
+  
   const [nav, setNav] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -30,11 +31,11 @@ const Navbar = () => {
 
   return (
     <div className='bg-gray-400 flex justify-between items-center h-70 px-4 text-white'>
-     <img
+     <Link to='/'><img
         src='/logo1.png'
         alt='Logo'
         className='h-20 w-15 mr-3'
-      />
+      /> </Link>
       <ul className='hidden md:flex'>
         <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 text-black hover:text-black'>
           <Link to='/'>Home</Link>
