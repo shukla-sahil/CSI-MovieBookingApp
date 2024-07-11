@@ -79,14 +79,14 @@ const Home = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-zinc-500 py-12 px-4 text-center text-white">
+      {/* <section className="bg-zinc-500 py-12 px-4 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl text-black font-bold mb-4">Ready to book your tickets?</h2>
           <button onClick={handleClick} className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-lg shadow-md">
             Book Now
           </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

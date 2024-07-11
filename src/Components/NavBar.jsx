@@ -5,7 +5,6 @@ import { auth } from '../Firebase/FirebaseConfig';
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 
 const Navbar = () => {
-  
   const [nav, setNav] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -30,44 +29,43 @@ const Navbar = () => {
   };
 
   return (
-    <div className='bg-gray-400 flex justify-between items-center h-70 px-4 text-white'>
-     <Link to='/'><img
-        src='/logo1.png'
-        alt='Logo'
-        className='h-20 w-15 mr-3'
-      /> </Link>
-      <ul className='hidden md:flex'>
-        <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 text-black hover:text-black'>
-          <Link to='/'>Home</Link>
-        </li>
-        <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300  text-black hover:text-black'>
-          <Link to='/movies'>Movies</Link>
-        </li>
-        {user ? (
-          <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300  text-black hover:text-black' onClick={logout}>
-            Logout
+    <div className='bg-gray-400 fixed w-full z-50 top-0 left-0'>
+      <div className='flex justify-between items-center h-16 px-4 text-white max-w-7xl mx-auto'>
+        <Link to='/'>
+          <img src='/logo1.png' alt='Logo' className='h-20 w-15 mr-3' />
+        </Link>
+        <ul className='hidden md:flex'>
+          <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 text-black hover:text-black'>
+            <Link to='/'>Home</Link>
           </li>
-        ) : (
-          <>
-            <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>
-              <Link to='/login'>Login</Link>
+          <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 text-black hover:text-black'>
+            <Link to='/movies'>Movies</Link>
+          </li>
+          {user ? (
+            <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 text-black hover:text-black' onClick={logout}>
+              Logout
             </li>
-            <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>
-              <Link to='/signup'>Signup</Link>
-            </li>
-          </>
-        )}
-      </ul>
-
-      <div onClick={handleNav} className='block md:hidden'>
-        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+          ) : (
+            <>
+              <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>
+                <Link to='/login'>Login</Link>
+              </li>
+              <li className='p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black'>
+                <Link to='/signup'>Signup</Link>
+              </li>
+            </>
+          )}
+        </ul>
+        <div onClick={handleNav} className='block md:hidden'>
+          {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+        </div>
       </div>
 
       <ul
         className={
           nav
-            ? 'fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-slate-600 ease-in-out duration-500'
-            : 'ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]'
+            ? 'fixed md:hidden left-0 top-16 w-[60%] h-full border-r border-r-gray-900 bg-slate-600 ease-in-out duration-500 z-50'
+            : 'fixed top-16 left-[-100%] w-[60%] h-full border-r border-r-gray-900 bg-slate-600 ease-in-out duration-500 z-50'
         }
       >
         <li className='p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600'>
